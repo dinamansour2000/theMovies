@@ -1,0 +1,15 @@
+/* 
+  Localization.strings
+  Movies
+
+  Created by Dina Mansour on 6/5/19.
+  Copyright © 2019 SWVL. All rights reserved.
+*/
+
+
+
+//Messages
+"successTitle" = "The Movies";
+"errorTitle" = "Error";
+"tryAgain" = "Please try again later";
+"noNetworkConnected" = "Please make sure you are connected to the internet";
