@@ -12,4 +12,4 @@ loads relates photoes from Flickr API
 
 Architecture Design Pattern Followed: MVVM
 
-Some workaroundsfor mapping an array of strings
+Some workarounds for mapping an array of strings
