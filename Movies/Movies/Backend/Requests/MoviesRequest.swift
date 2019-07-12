@@ -1,10 +1,4 @@
-//
-//  GithubRequest.swift
-//  GetGithubRepos
-//
-//  Created by Dina Mansour on 5/11/19.
-//  Copyright © 2019 Rayeh. All rights reserved.
-//
+
 
 
 
@@ -13,7 +7,7 @@ import Alamofire
 import SwiftyJSON
 import ObjectMapper
 import AlamofireObjectMapper
-import Dotzu
+
 
 public protocol MoviesRequestDelegate: NSObjectProtocol {
     func requestWillSend()

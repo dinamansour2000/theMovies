@@ -1,6 +1,0 @@
-framework module Dotzu {
-  umbrella header "Dotzu-umbrella.h"
-
-  export *
-  module * { export * }
-}

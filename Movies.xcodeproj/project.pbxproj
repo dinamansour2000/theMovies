@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,7 +49,6 @@
 		ED7EC25D22A74A0F003BD65F /* movie.png in Resources */ = {isa = PBXBuildFile; fileRef = ED7EC25C22A74A0F003BD65F /* movie.png */; };
 		ED7EC25F22A757D7003BD65F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7EC25E22A757D7003BD65F /* CollectionViewCell.swift */; };
 		EDB0AFD022A9313D00770202 /* RealmResultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0AFCF22A9313D00770202 /* RealmResultsExtensions.swift */; };
-		EDB0AFD222A9319200770202 /* AlamofireResponseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0AFD122A9319200770202 /* AlamofireResponseExtension.swift */; };
 		EDB0AFD322A94E7100770202 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = EDB0AFD522A94E7100770202 /* Localization.strings */; };
 		EDB0AFDD22AAE8E200770202 /* MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0AFDC22AAE8E200770202 /* MoviesTests.swift */; };
 /* End PBXBuildFile section */
@@ -111,7 +110,6 @@
 		ED7EC25C22A74A0F003BD65F /* movie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movie.png; sourceTree = "<group>"; };
 		ED7EC25E22A757D7003BD65F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		EDB0AFCF22A9313D00770202 /* RealmResultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmResultsExtensions.swift; sourceTree = "<group>"; };
-		EDB0AFD122A9319200770202 /* AlamofireResponseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireResponseExtension.swift; sourceTree = "<group>"; };
 		EDB0AFD422A94E7100770202 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
 		EDB0AFDA22AAE8E000770202 /* MoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB0AFDC22AAE8E200770202 /* MoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTests.swift; sourceTree = "<group>"; };
@@ -265,7 +263,6 @@
 				ED7EC20322A6CECD003BD65F /* AlamofireRequestExtension.swift */,
 				ED7EC20422A6CECD003BD65F /* BaseMoviesRequest.swift */,
 				ED7EC20522A6CECD003BD65F /* MoviesRequest.swift */,
-				EDB0AFD122A9319200770202 /* AlamofireResponseExtension.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -478,7 +475,7 @@
 				};
 			};
 			buildConfigurationList = ED7EC1D122A6A065003BD65F /* Build configuration list for PBXProject "Movies" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -524,41 +521,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Movies/Pods-Movies-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
-				"${BUILT_PRODUCTS_DIR}/Dotzu/Dotzu.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper+Realm/ObjectMapper_Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Movies/Pods-Movies-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cartography.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dotzu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper_Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Movies/Pods-Movies-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Movies/Pods-Movies-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Movies/Pods-Movies-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3919E2166869DE6694DA8E9A /* [CP] Check Pods Manifest.lock */ = {
@@ -622,7 +594,6 @@
 				ED7EC22D22A6CECD003BD65F /* BaseMoviesRequest.swift in Sources */,
 				ED7EC25022A6DD53003BD65F /* FlickerViewModel.swift in Sources */,
 				ED7EC22C22A6CECD003BD65F /* AlamofireRequestExtension.swift in Sources */,
-				EDB0AFD222A9319200770202 /* AlamofireResponseExtension.swift in Sources */,
 				ED7EC22722A6CECD003BD65F /* UIHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,6 +694,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -777,6 +749,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

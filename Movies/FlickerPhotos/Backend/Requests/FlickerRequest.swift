@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import ObjectMapper
 import AlamofireObjectMapper
-import Dotzu
+
 
 public protocol FlickerRequestDelegate: NSObjectProtocol {
     func requestWillSend()

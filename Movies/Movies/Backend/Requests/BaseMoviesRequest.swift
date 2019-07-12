@@ -5,31 +5,31 @@ import Alamofire
 import SwiftyJSON
 import ObjectMapper
 import AlamofireObjectMapper
-import Dotzu
+
 
 public class BaseMoviesRequest<T: Mappable>: NSObject {
     
-    var sessionManager: SessionManager?
+    let sessionManager = Alamofire.Session.default
     var dataRequest: DataRequest?
     var isForcingCancel = false
    
     
     public override init() {
         super.init()
-        addDebuggerConfiguration()
+       // addDebuggerConfiguration()
     }
     
-    private func addDebuggerConfiguration() {
+ /*   private func addDebuggerConfiguration() {
         let configuration = URLSessionConfiguration.default
         Dotzu.sharedManager.addLogger(session: configuration)
         sessionManager = Alamofire.SessionManager(configuration: configuration)
-    }
+    } */
     public func getResponseArray(url: String, debugResponse: Bool = true) {
-        dataRequest =  sessionManager?.request(url, method: getMethodType(), parameters: getParameters(), headers: getHeaders())
-        dataRequest?.DebugLog()
+        dataRequest =  sessionManager.request(url, method: getMethodType(), parameters: getParameters(), headers: getHeaders())
+           .debugLog()
             .responseArray(completionHandler: { (response: DataResponse<[T]>) in
                 if debugResponse {
-                    Logger.info(response)
+                   // Logger.info(response)
                 }
                 
                 weak var weakSelf = self
@@ -37,7 +37,8 @@ public class BaseMoviesRequest<T: Mappable>: NSObject {
                 switch response.result {
                 case .success:
                     
-                    guard let successResponse: [T] = response.result.value else {
+                
+                    guard let successResponse: [T] = try! response.result.get() else {
                         //weakSelf?.onEmptyResponse()
                         break
                     }
@@ -45,7 +46,10 @@ public class BaseMoviesRequest<T: Mappable>: NSObject {
                     if(successResponse.isEmpty){
                        // weakSelf?.onEmptyResponse()
                     }
-                    weakSelf?.onRequestSuccess(data: successResponse)
+                    
+                   
+                    
+                    weakSelf?.onRequestSuccess(data: successResponse )
                     
                     
                 case .failure:
@@ -53,14 +57,14 @@ public class BaseMoviesRequest<T: Mappable>: NSObject {
                         weakSelf?.onRequestFail()
                     }
                 }
-            })
+                } as! (DataResponse<[T]>) -> Void)
     }
     public func getResponseObject(url: String, debugResponse: Bool = true) {
-        sessionManager?.request(url, method: getMethodType(), parameters: getParameters() , encoding: JSONEncoding.default ,headers: getHeaders())
-            .DebugLog()
+        sessionManager.request(url, method: getMethodType(), parameters: getParameters() , encoding: JSONEncoding.default ,headers: getHeaders())
+            .debugLog()
             .responseObject(completionHandler: { (response: DataResponse<T>) in
                 if debugResponse {
-                    Logger.info(response)
+                  //  Logger.info(response)
                 }
                 
                 weak var weakSelf = self

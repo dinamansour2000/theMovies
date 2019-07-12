@@ -6,7 +6,7 @@ target 'Movies' do
   use_frameworks!
 
   # Pods for Movies
-    pod 'Alamofire', '~> 4.4.0'
+    pod 'Alamofire'
     pod 'ObjectMapper'
     pod 'SwiftyJSON'
     pod 'AlamofireObjectMapper'
@@ -27,8 +27,7 @@ target 'Movies' do
     pod 'RealmSwift'
     pod "ObjectMapper+Realm"
     
-    #Debugger
-    pod 'Dotzu'
+   
     
     #Messages
     pod 'SwiftMessages'

@@ -730,7 +730,7 @@ public extension SyncSession {
             return transferredBytes >= transferrableBytes
         }
 
-        fileprivate init(transferred: UInt, transferrable: UInt) {
+        internal init(transferred: UInt, transferrable: UInt) {
             transferredBytes = Int(transferred)
             transferrableBytes = Int(transferrable)
         }
@@ -904,7 +904,7 @@ public enum SyncSubscriptionState: Equatable {
 /// Changes to the state of the subscription can be observed using `SyncSubscription.observe(_:options:_:)`.
 ///
 /// Subscriptions are created using `Results.subscribe()` or `Results.subscribe(named:)`.
-public class SyncSubscription<T: RealmCollectionValue>: RealmCollectionValue {
+public final class SyncSubscription<T: RealmCollectionValue>: RealmCollectionValue {
     private let rlmSubscription: RLMSyncSubscription
 
     /// The name of the subscription.
@@ -1018,6 +1018,16 @@ public class SyncSubscription<T: RealmCollectionValue>: RealmCollectionValue {
     }
 }
 
+// :nodoc:
+extension SyncSubscription: CustomObjectiveCBridgeable {
+    static func bridging(objCValue: Any) -> SyncSubscription {
+        return ObjectiveCSupport.convert(object: RLMCastToSyncSubscription(objCValue)) as! SyncSubscription<T>
+    }
+    var objCValue: Any {
+        return 0
+    }
+}
+
 extension Results {
     // MARK: Sync
 
@@ -1117,7 +1127,6 @@ extension Results {
     }
 }
 
-#if swift(>=3.2)
 internal class KeyValueObservationNotificationToken: NotificationToken {
     public var observation: NSKeyValueObservation?
 
@@ -1130,7 +1139,6 @@ internal class KeyValueObservationNotificationToken: NotificationToken {
         self.observation = nil
     }
 }
-#endif // Swift >= 3.2
 
 // MARK: - Migration assistance
 

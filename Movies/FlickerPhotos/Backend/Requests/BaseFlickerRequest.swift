@@ -11,32 +11,32 @@ import Alamofire
 import SwiftyJSON
 import ObjectMapper
 import AlamofireObjectMapper
-import Dotzu
+
 
 public class BaseFlickerRequest<T: Mappable>: NSObject {
     
-    var sessionManager: SessionManager?
+    let sessionManager = Alamofire.Session.default
     var dataRequest: DataRequest?
     var isForcingCancel = false
     
     
     public override init() {
         super.init()
-        addDebuggerConfiguration()
+       // addDebuggerConfiguration()
     }
     
-    private func addDebuggerConfiguration() {
+  /*  private func addDebuggerConfiguration() {
         let configuration = URLSessionConfiguration.default
         Dotzu.sharedManager.addLogger(session: configuration)
         sessionManager = Alamofire.SessionManager(configuration: configuration)
-    }
+    } */
     
     public func getResponseArray(url: String, debugResponse: Bool = true) {
-        sessionManager?.request(url, method: getMethodType(), parameters: getParameters() , encoding: JSONEncoding.default ,headers: getHeaders())
-            .DebugLog()
+        sessionManager.request(url, method: getMethodType(), parameters: getParameters() , encoding: JSONEncoding.default ,headers: getHeaders())
+            .debugLog()
             .responseObject(completionHandler: { (response: DataResponse<T>) in
                 if debugResponse {
-                    Logger.info(response)
+                  //  Logger.info(response)
                 }
                 
                 weak var weakSelf = self
